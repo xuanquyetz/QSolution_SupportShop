@@ -17,5 +17,7 @@ namespace SupportWeb.Data.Entities
         public string FormThucHien { set; get; }
         public string GhiChu { set; get; }
         public string NguoiYeuCau { set; get; }
+        public DateTime? NgayTao { set; get; }
+        public DateTime? NgayHoanThanh { set; get; }
     }
 }
