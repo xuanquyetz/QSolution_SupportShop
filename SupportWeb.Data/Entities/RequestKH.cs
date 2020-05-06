@@ -8,7 +8,7 @@ namespace SupportWeb.Data.Entities
     public class RequestKH
     {
         public int Stt { set; get; }
-        public string Ma { set; get; }
+        public Guid Ma { set; get; }
         public string Ten { set; get; }
         public TrangThai TrangThai { set; get; }
         public string CodeMa { set; get; }
@@ -19,5 +19,7 @@ namespace SupportWeb.Data.Entities
         public string NguoiYeuCau { set; get; }
         public DateTime? NgayTao { set; get; }
         public DateTime? NgayHoanThanh { set; get; }
+        public KhachHang KhachHang { set; get; }
+        public NhanSu NhanSu { set; get; }
     }
 }
