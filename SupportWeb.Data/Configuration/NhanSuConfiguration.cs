@@ -15,6 +15,8 @@ namespace SupportWeb.Data.Configuration
             builder.ToTable("NhanSu");
             builder.HasKey(q => q.Ma);
             builder.Property(q => q.SoDienThoai).IsRequired().HasDefaultValue(0).HasMaxLength(11);
+            builder.Property(q => q.HoTen).HasMaxLength(100);
+           // builder.Property(q => q.BoPhan).HasMaxLength(50);
             builder.Property(q => q.BoPhan).HasDefaultValue(BoPhan.Support);
         }
     }

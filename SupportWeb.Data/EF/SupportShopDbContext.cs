@@ -17,6 +17,7 @@ namespace SupportWeb.Data.EF
         {
             modelBuilder.ApplyConfiguration(new KhachHangConfiguration());
             modelBuilder.ApplyConfiguration(new NhanSuConfiguration());
+            modelBuilder.ApplyConfiguration(new RequestKHConfiguration());
             //base.OnModelCreating(modelBuilder);
         }
         public DbSet<NhanSu> NhanSus { set; get; }

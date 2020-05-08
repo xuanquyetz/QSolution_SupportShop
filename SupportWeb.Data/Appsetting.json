@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "SupportShopDatabase": "Server=.;Database=SupportShop;Trusted_Connection=True;"
+    "SupportShopDatabase": "Server=XUANQUYET756D;Database=SupportShop;Trusted_Connection=True;"
   }
 }

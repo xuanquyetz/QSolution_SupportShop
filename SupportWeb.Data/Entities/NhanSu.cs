@@ -15,6 +15,6 @@ namespace SupportWeb.Data.Entities
         public int SoDienThoai { set; get; }
         public DateTime? NgaySinh { set; get; }
         public List<RequestKH> RequestKH { set; get; }
-        public List<KhachHang> KhachHang { set; get; }
+        //public List<KhachHang> KhachHang { set; get; }
     }
 }

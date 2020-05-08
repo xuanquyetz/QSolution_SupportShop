@@ -14,8 +14,8 @@ namespace SupportWeb.Data.Entities
         public string NguoiChiuTrachNhiem { set; get; }
         public string Email { set; get; }
         public string ThongTinSupport { set; get; }
-        public string NhanSuPhuTrachMa { set; get; }
+        public Guid NhanSuPhuTrachMa { set; get; }
         public List<RequestKH> RequestKH { set; get; }
-        public NhanSu NhanSu { set; get; }
+       // public NhanSu NhanSu { set; get; }
     }
 }

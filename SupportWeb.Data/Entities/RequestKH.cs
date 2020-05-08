@@ -11,9 +11,9 @@ namespace SupportWeb.Data.Entities
         public Guid Ma { set; get; }
         public string Ten { set; get; }
         public TrangThai TrangThai { set; get; }
-        public string CodeMa { set; get; }
-        public string KyThuatMa { set; get; }
-        public string KhachHangMa { set; get; }
+        public Guid CodeMa { set; get; }
+        public Guid KyThuatMa { set; get; }
+        public Guid KhachHangMa { set; get; }
         public string FormThucHien { set; get; }
         public string GhiChu { set; get; }
         public string NguoiYeuCau { set; get; }
