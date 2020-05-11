@@ -1,4 +1,5 @@
-﻿using SupportWeb.Application.Catalog.RequestKH.Dtos;
+﻿using Microsoft.AspNetCore.Http;
+using SupportWeb.Application.Catalog.RequestKH.Dtos;
 using SupportWeb.Application.Catalog.RequestKH.Dtos.Manage;
 using SupportWeb.Application.CommonDtos;
 using System;
@@ -15,5 +16,9 @@ namespace SupportWeb.Application.Catalog.RequestKH
        Task< int> Delete(string Ma);
        Task<List<RequestKHViewModel>> GetAll();
        Task< PageResult<RequestKHViewModel>> GetAllPaging(GetRequestKHPagingRequest request);
+       Task<int> AddImage(string MaRequestKH, List<IFormFile> files);
+       Task<int> RemoveImage(string MaRequestKH);
+        Task<int> UpdateImage(string MaImage, string caption, bool isDefault);
+        Task<List<RequestKHImageViewModel>> GetListImage(string MaRequetKH);
     }
 }

@@ -19,5 +19,8 @@ namespace SupportWeb.Application.Catalog.RequestKH.Dtos
         public string NguoiYeuCau { set; get; }
         public DateTime? NgayTao { set; get; }
         public DateTime? NgayHoanThanh { set; get; }
+        public string TenCode { get; set; }
+        public string TenTrienKhai { get; set; }
+        public string TenKhachHang { get; set; }
     }
 }
