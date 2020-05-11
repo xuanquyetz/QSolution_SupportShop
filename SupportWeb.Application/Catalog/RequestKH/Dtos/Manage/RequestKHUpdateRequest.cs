@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Data.Entities
+namespace SupportWeb.Application.Catalog.RequestKH.Dtos.Manage
 {
-    public class RequestKH
+    public class RequestKHUpdateRequest
     {
         public int Stt { set; get; }
         public Guid Ma { set; get; }
@@ -19,8 +19,5 @@ namespace SupportWeb.Data.Entities
         public string NguoiYeuCau { set; get; }
         public DateTime? NgayTao { set; get; }
         public DateTime? NgayHoanThanh { set; get; }
-        public KhachHang KhachHang { set; get; }
-        public NhanSu NhanSu { set; get; }
-        public List<RequestKHImage> RequestKHImage { set; get; }
     }
 }

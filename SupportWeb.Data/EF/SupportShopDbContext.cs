@@ -24,6 +24,7 @@ namespace SupportWeb.Data.EF
             modelBuilder.ApplyConfiguration(new RequestKHConfiguration());
             modelBuilder.ApplyConfiguration(new AppRoleConfiguration());
             modelBuilder.ApplyConfiguration(new AppUserConfiguration());
+            modelBuilder.ApplyConfiguration(new RequestKHImageConfiguration());
             modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaim");
             modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogin").HasKey(q=>q.UserId);
             modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRole").HasKey(q=>new{q.UserId, q.RoleId });
