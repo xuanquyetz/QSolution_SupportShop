@@ -3,9 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Application.Catalog.NhanSu.Dtos.Manage
+namespace SupportWeb.ViewModels.Catalog.NhanSu
 {
-   public class NhanSuUpdateRequest
+   public class NhanSuViewModel
     {
         public Guid Ma { set; get; }
         public string HoTen { set; get; }

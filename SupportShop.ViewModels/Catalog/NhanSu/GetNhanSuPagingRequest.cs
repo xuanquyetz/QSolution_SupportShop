@@ -1,9 +1,10 @@
-﻿using SupportWeb.Application.CommonDtos;
+﻿
+using SupportWeb.ViewModels.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Application.Catalog.NhanSu.Dtos.Manage
+namespace SupportWeb.ViewModels.Catalog.NhanSu
 {
    public class GetNhanSuPagingRequest:PagingRequestBase
     {

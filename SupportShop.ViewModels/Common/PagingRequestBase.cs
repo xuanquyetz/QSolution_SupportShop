@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Application.CommonDtos
+namespace SupportWeb.ViewModels.Common
 {
    public class PagingRequestBase
     {

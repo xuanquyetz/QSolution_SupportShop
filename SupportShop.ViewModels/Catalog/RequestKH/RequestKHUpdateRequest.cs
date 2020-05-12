@@ -1,9 +1,10 @@
-﻿using SupportWeb.Data.Enums;
+﻿using Microsoft.AspNetCore.Http;
+using SupportWeb.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Application.Catalog.RequestKH.Dtos.Manage
+namespace SupportWeb.Application.Catalog.RequestKH
 {
     public class RequestKHUpdateRequest
     {
@@ -19,5 +20,6 @@ namespace SupportWeb.Application.Catalog.RequestKH.Dtos.Manage
         public string NguoiYeuCau { set; get; }
         public DateTime? NgayTao { set; get; }
         public DateTime? NgayHoanThanh { set; get; }
+        public IFormFile HinhNho { get; set; }
     }
 }

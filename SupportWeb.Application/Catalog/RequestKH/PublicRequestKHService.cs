@@ -1,6 +1,4 @@
-﻿using SupportWeb.Application.Catalog.RequestKH.Dtos;
-using SupportWeb.Application.Catalog.RequestKH.Dtos.Manage;
-using SupportWeb.Application.CommonDtos;
+﻿
 using SupportWeb.Data.EF;
 using System;
 using System.Collections.Generic;
@@ -8,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using SupportWeb.ViewModels.Catalog.RequestKH;
+using SupportWeb.ViewModels.Common;
 
 namespace SupportWeb.Application.Catalog.RequestKH
 {
@@ -18,7 +18,7 @@ namespace SupportWeb.Application.Catalog.RequestKH
         {
             _context = context;
         }
-        public async Task<PageResult<RequestKHViewModel>> GetAllByRequestKH(Dtos.Public.GetRequestKHPagingRequest request)
+        public async Task<PageResult<RequestKHViewModel>> GetAllByRequestKH(GetPublicRequestKHPagingRequest request)
         {
             var query = from rq in _context.RequestKHs
                         join kh in _context.KhachHangs on rq.KhachHangMa equals kh.Ma

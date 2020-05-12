@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Application.Catalog.RequestKH.Dtos
+namespace SupportWeb.ViewModels.Catalog.RequestKHImage
 {
    public class RequestKHImageViewModel
     {

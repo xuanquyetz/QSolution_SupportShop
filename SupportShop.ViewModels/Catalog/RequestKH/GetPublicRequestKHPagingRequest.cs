@@ -1,11 +1,12 @@
-﻿using SupportWeb.Application.CommonDtos;
+﻿
+using SupportWeb.ViewModels.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Application.Catalog.RequestKH.Dtos.Public
+namespace SupportWeb.ViewModels.Catalog.RequestKH
 {
-   public class GetRequestKHPagingRequest:PagingRequestBase
+   public class GetPublicRequestKHPagingRequest: PagingRequestBase
     {
         public string Ma { set; get; }
         public string Keyword { set; get; }

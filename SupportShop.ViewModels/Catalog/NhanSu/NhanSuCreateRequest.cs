@@ -3,11 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Application.Catalog.NhanSu.Dtos
+namespace SupportWeb.ViewModels.Catalog.NhanSu
 {
-   public class NhanSuViewModel
+  public  class NhanSuCreateRequest
     {
-        public Guid Ma { set; get; }
         public string HoTen { set; get; }
         public string ChucVu { set; get; }
         public BoPhan BoPhan { set; get; }

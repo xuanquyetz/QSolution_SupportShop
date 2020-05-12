@@ -1,14 +1,15 @@
-﻿using SupportWeb.Data.Enums;
+﻿using Microsoft.AspNetCore.Http;
+using SupportWeb.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SupportWeb.Application.Catalog.RequestKH.Dtos.Manage
+namespace SupportWeb.ViewModels.Catalog.RequestKH
 {
-    public class RequestKHCreateRequest
+    public class RequestKHViewModel
     {
         public int Stt { set; get; }
-        //public Guid Ma { set; get; }
+        public Guid Ma { set; get; }
         public string Ten { set; get; }
         public TrangThai TrangThai { set; get; }
         public Guid CodeMa { set; get; }
@@ -19,7 +20,9 @@ namespace SupportWeb.Application.Catalog.RequestKH.Dtos.Manage
         public string NguoiYeuCau { set; get; }
         public DateTime? NgayTao { set; get; }
         public DateTime? NgayHoanThanh { set; get; }
-        public Guid MaNhanSu { set; get; }
-        public Guid MaKhachHang { set; get; }
+        public string TenCode { get; set; }
+        public string TenTrienKhai { get; set; }
+        public string TenKhachHang { get; set; }
+        public IFormFile HinhNho { get; set; }
     }
 }
