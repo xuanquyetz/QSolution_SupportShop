@@ -12,5 +12,7 @@ namespace SupportWeb.Application.Catalog.RequestKH
     public interface IPublicRequestKHService
     {
         Task<PageResult<RequestKHViewModel>> GetAllByRequestKH(GetPublicRequestKHPagingRequest request);
+        Task<List<RequestKHViewModel>> GetAll();
+        
     }
 }

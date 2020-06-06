@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuppportShop.Utilities", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SupportWeb.ViewModels", "SupportShop.ViewModels\SupportWeb.ViewModels.csproj", "{B325E3D3-877B-427A-91CA-EB459FC9F092}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupportWeb.BackendApi", "SupportWeb.BackendApi\SupportWeb.BackendApi.csproj", "{D466EDC7-3EEC-4E8D-8E55-5B473677A847}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{B325E3D3-877B-427A-91CA-EB459FC9F092}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B325E3D3-877B-427A-91CA-EB459FC9F092}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B325E3D3-877B-427A-91CA-EB459FC9F092}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D466EDC7-3EEC-4E8D-8E55-5B473677A847}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D466EDC7-3EEC-4E8D-8E55-5B473677A847}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D466EDC7-3EEC-4E8D-8E55-5B473677A847}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D466EDC7-3EEC-4E8D-8E55-5B473677A847}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

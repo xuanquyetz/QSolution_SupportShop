@@ -33,11 +33,12 @@ namespace SupportWeb.Application.Catalog.RequestKH
             throw new NotImplementedException();
         }
 
-        public async Task<int> Create(RequestKHCreateRequest request)
+        public async Task<Guid> Create(RequestKHCreateRequest request)
         {
             var requestKH = new Data.Entities.RequestKH()
             {
                 Ten = request.Ten,
+                Stt=request.Stt,
                 TrangThai = request.TrangThai,
                 CodeMa = request.CodeMa,
                 KyThuatMa=request.KyThuatMa,
@@ -51,11 +52,21 @@ namespace SupportWeb.Application.Catalog.RequestKH
             //Save Image
             if (request.HinhNho != null)
             {
+                string Nam = DateTime.Now.Year.ToString();
+                string Thang = DateTime.Now.Month.ToString();
+                string Ngay = DateTime.Now.Day.ToString();
+                string Gio = DateTime.Now.Hour.ToString();
+                string Phut = DateTime.Now.Minute.ToString();
+                string Giay = DateTime.Now.Second.ToString();
+                string MiliGiay = DateTime.Now.Millisecond.ToString();
+               
                 requestKH.RequestKHImage = new List<RequestKHImage>()
                 {
                     new RequestKHImage()
                     {
-                        Caption="Image request"+request.Ten,
+                        //Ma=requestKH.Ma+DateTime.Now.ToString(),
+                        Ma=Nam+Thang+Ngay+Gio+Phut+Giay+MiliGiay,
+                        Caption="Image request",
                         NgayTao=DateTime.Now,
                         FileSize=request.HinhNho.Length,
                         ImagePath= await this.SaveFile(request.HinhNho),
@@ -64,15 +75,19 @@ namespace SupportWeb.Application.Catalog.RequestKH
                     }
                 };
             }
-            _context.RequestKHs.Add(requestKH);
-           return await _context.SaveChangesAsync();
+                _context.RequestKHs.Add(requestKH);
+
+                await _context.SaveChangesAsync();
+
+                return requestKH.Ma;
+            
         }
 
-        public async Task<int> Delete(string Ma)
+        public async Task<int> Delete(Guid Ma)
         {
             var requestKH = await _context.RequestKHs.FindAsync(Ma);
             if (requestKH == null) throw new SupportShopException($"Không tìm thấy request can xoa:{Ma}");
-            var hinhanh = _context.RequestKHImages.Where(q => q.RequestKHMa.ToString() == Ma);
+            var hinhanh = _context.RequestKHImages.Where(q => q.RequestKHMa == Ma);
             foreach (var item in hinhanh)
             {
                await _storageService.DeleteFileAsync(item.ImagePath);
@@ -123,6 +138,27 @@ namespace SupportWeb.Application.Catalog.RequestKH
                 Items = data
             };
             return pagedResult;
+        }
+
+        public async Task<RequestKHViewModel> GetByMa(Guid Ma2)
+        {
+            var requestkh = await _context.RequestKHs.FindAsync(Ma2);
+            var reqestKHViewModel = new RequestKHViewModel()
+            {
+                Ma = requestkh.Ma,
+                Ten = requestkh.Ten,
+                Stt = requestkh.Stt,
+                TrangThai = requestkh.TrangThai,
+                CodeMa = requestkh.CodeMa,
+                KyThuatMa = requestkh.KyThuatMa,
+                KhachHangMa = requestkh.KhachHangMa,
+                FormThucHien = requestkh.FormThucHien,
+                GhiChu = requestkh.GhiChu,
+                NguoiYeuCau = requestkh.NguoiYeuCau,
+
+            };
+            return reqestKHViewModel;
+
         }
 
         public Task<List<RequestKHImageViewModel>> GetImageByMa(string MaImage)

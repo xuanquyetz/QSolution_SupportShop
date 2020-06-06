@@ -8,7 +8,7 @@ namespace SupportWeb.ViewModels.Catalog.RequestKH
 {
    public class GetPublicRequestKHPagingRequest: PagingRequestBase
     {
-        public string Ma { set; get; }
+        public Guid Ma { set; get; }
         public string Keyword { set; get; }
     }
 }

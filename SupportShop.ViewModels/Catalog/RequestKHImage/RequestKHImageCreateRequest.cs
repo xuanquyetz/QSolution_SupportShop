@@ -7,6 +7,7 @@ namespace SupportWeb.ViewModels.Catalog.RequestKHImage
 {
    public class RequestKHImageCreateRequest
     {
+        public string Ma { get; set; }
         public string Caption { get; set; }
         public bool IsDefault { get; set; }
         public int SoTTImage { get; set; }

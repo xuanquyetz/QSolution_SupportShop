@@ -18,10 +18,8 @@ namespace SupportWeb.ViewModels.Catalog.RequestKH
         public string FormThucHien { set; get; }
         public string GhiChu { set; get; }
         public string NguoiYeuCau { set; get; }
-        public DateTime? NgayTao { set; get; }
+       // public DateTime? NgayTao { set; get; }
         public DateTime? NgayHoanThanh { set; get; }
-        public Guid MaNhanSu { set; get; }
-        public Guid MaKhachHang { set; get; }
         public IFormFile HinhNho { get; set; }
     }
 }
