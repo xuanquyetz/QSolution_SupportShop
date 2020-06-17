@@ -42,6 +42,7 @@ namespace SupportWeb.Data.EF
         public DbSet<NhanSu> NhanSus { set; get; }
         public DbSet<KhachHang> KhachHangs { set; get; }
         public DbSet<RequestKH> RequestKHs { set; get; }
+        public DbSet<RequestKHImage> RequestKHImages { set; get; }
     }
 
 }

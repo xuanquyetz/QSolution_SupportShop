@@ -1,6 +1,6 @@
-﻿using SupportWeb.Application.Catalog.NhanSu.Dtos;
-using SupportWeb.Application.Catalog.NhanSu.Dtos.Manage;
-using SupportWeb.Application.CommonDtos;
+﻿
+using SupportWeb.ViewModels.Catalog.NhanSu;
+using SupportWeb.ViewModels.Common;
 using System;
 using System.Collections.Generic;
 using System.Text;

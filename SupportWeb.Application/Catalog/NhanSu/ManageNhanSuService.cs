@@ -1,7 +1,7 @@
-﻿using SupportWeb.Application.Catalog.NhanSu.Dtos;
-using SupportWeb.Application.Catalog.NhanSu.Dtos.Manage;
-using SupportWeb.Application.CommonDtos;
+﻿
 using SupportWeb.Data.EF;
+using SupportWeb.ViewModels.Catalog.NhanSu;
+using SupportWeb.ViewModels.Common;
 using SuppportShop.Utilities.Exceptions;
 using System;
 using System.Collections.Generic;

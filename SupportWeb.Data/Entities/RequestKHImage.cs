@@ -13,7 +13,7 @@ namespace SupportWeb.Data.Entities
         public bool IsDefault { get; set; }
         public DateTime NgayTao  { get; set; }
         public int SoTTImage { get; set; }
-        public int FileSize { get; set; }
+        public long FileSize { get; set; }
         public RequestKH RequestKH { get; set; }
     }
 }
