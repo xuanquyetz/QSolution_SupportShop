@@ -8,6 +8,7 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using SupportWeb.ViewModels.Catalog.RequestKH;
 using SupportWeb.ViewModels.Common;
+using SupportWeb.Data.Enums;
 
 namespace SupportWeb.Application.Catalog.RequestKH
 {
@@ -33,6 +34,9 @@ namespace SupportWeb.Application.Catalog.RequestKH
                 Ten = k.rq.Ten,
                 TrangThai = k.rq.TrangThai,
                 TenCode = k.ns.HoTen,
+                KhachHangMa = k.rq.KhachHangMa,
+                CodeMa = k.rq.CodeMa,
+                KyThuatMa = k.rq.KyThuatMa,
                 TenTrienKhai = k.ns.HoTen,
                 TenKhachHang = k.kh.Ten,
                 FormThucHien = k.rq.FormThucHien,
@@ -62,6 +66,9 @@ namespace SupportWeb.Application.Catalog.RequestKH
                 Ten = k.rq.Ten,
                 TrangThai = k.rq.TrangThai,
                 TenCode = k.ns.HoTen,
+                KhachHangMa = k.rq.KhachHangMa,
+                CodeMa = k.rq.CodeMa,
+                KyThuatMa = k.rq.KyThuatMa,
                 TenTrienKhai = k.ns.HoTen,
                 TenKhachHang = k.kh.Ten,
                 FormThucHien = k.rq.FormThucHien,
@@ -77,6 +84,66 @@ namespace SupportWeb.Application.Catalog.RequestKH
                 Items = data
             };
             return pagedResult;
+        }
+
+        public async Task<List<RequestKHViewModel>> GetByKH(Guid MaKH)
+        {
+            var query = from rq in _context.RequestKHs
+                        join kh in _context.KhachHangs on rq.KhachHangMa equals kh.Ma
+                        join ns in _context.NhanSus on rq.KyThuatMa equals ns.Ma
+                        where rq.KhachHangMa==MaKH
+                        select new { rq, kh, ns };
+            var data = await query.Select(k => new RequestKHViewModel()
+            {
+
+                Stt = k.rq.Stt,
+                Ma = k.rq.Ma,
+                Ten = k.rq.Ten,
+                TrangThai = k.rq.TrangThai,
+                TenCode = k.ns.HoTen,
+                KhachHangMa=k.rq.KhachHangMa,
+                CodeMa=k.rq.CodeMa,
+                KyThuatMa=k.rq.KyThuatMa,
+                TenTrienKhai = k.ns.HoTen,
+                TenKhachHang = k.kh.Ten,
+                FormThucHien = k.rq.FormThucHien,
+                GhiChu = k.rq.GhiChu,
+                NgayTao = k.rq.NgayTao,
+                NgayHoanThanh = k.rq.NgayHoanThanh,
+                NguoiYeuCau = k.rq.NguoiYeuCau,
+
+            }).ToListAsync();
+            return data;
+        }
+
+        public async Task<List<RequestKHViewModel>> GetByKHAndTrangThai(Guid MaKH, TrangThai trangThai)
+        {
+            var query = from rq in _context.RequestKHs
+                       join kh in _context.KhachHangs on rq.KhachHangMa equals kh.Ma
+                       join ns in _context.NhanSus on rq.KyThuatMa equals ns.Ma
+                       where rq.KhachHangMa == MaKH && rq.TrangThai==trangThai
+                       select new { rq, kh, ns };
+            var data = await query.Select(k => new RequestKHViewModel()
+            {
+
+                Stt = k.rq.Stt,
+                Ma = k.rq.Ma,
+                Ten = k.rq.Ten,
+                TrangThai = k.rq.TrangThai,
+                TenCode = k.ns.HoTen,
+                KhachHangMa = k.rq.KhachHangMa,
+                CodeMa = k.rq.CodeMa,
+                KyThuatMa = k.rq.KyThuatMa,
+                TenTrienKhai = k.ns.HoTen,
+                TenKhachHang = k.kh.Ten,
+                FormThucHien = k.rq.FormThucHien,
+                GhiChu = k.rq.GhiChu,
+                NgayTao = k.rq.NgayTao,
+                NgayHoanThanh = k.rq.NgayHoanThanh,
+                NguoiYeuCau = k.rq.NguoiYeuCau,
+
+            }).ToListAsync();
+            return data;
         }
     }
     

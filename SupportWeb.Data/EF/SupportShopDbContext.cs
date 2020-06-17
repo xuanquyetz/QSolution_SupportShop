@@ -8,6 +8,7 @@ using SupportWeb.Data.Configuration;
 using SupportWeb.Data.Extensions;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using SupportWeb.Data.Enums;
 
 namespace SupportWeb.Data.EF
 {
@@ -43,6 +44,7 @@ namespace SupportWeb.Data.EF
         public DbSet<KhachHang> KhachHangs { set; get; }
         public DbSet<RequestKH> RequestKHs { set; get; }
         public DbSet<RequestKHImage> RequestKHImages { set; get; }
+       
     }
 
 }
