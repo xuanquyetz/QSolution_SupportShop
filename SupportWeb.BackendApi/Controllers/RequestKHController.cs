@@ -33,6 +33,12 @@ namespace SupportWeb.BackendApi.Controllers
             var requestkh = await _publicRequestKHService.GetAllByRequestKH(request);
             return Ok(requestkh);
         }
+        [HttpGet("manager-paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetManageRequestKHPagingRequest request)
+        {
+            var requestkh = await _manageRequestKHService.GetAllPaging(request);
+            return Ok(requestkh);
+        }
         [HttpGet("{Ma}")]
         public async Task<IActionResult> GetByMa(Guid Ma)
         {

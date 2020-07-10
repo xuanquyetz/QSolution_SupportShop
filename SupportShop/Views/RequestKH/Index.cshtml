@@ -1,0 +1,121 @@
+﻿@using SupportWeb.ViewModels.Common;
+@model PageResult<SupportWeb.ViewModels.Catalog.RequestKH.RequestKHViewModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                STT
+            </th>
+            <th>
+               Mã
+            </th>
+            <th>
+               Tên Request
+            </th>
+            <th>
+                Trạng Thái
+            </th>
+            <th>
+                IdCode
+            </th>
+            <th>
+               Id Kỹ Thuật
+            </th>
+            <th>
+               Id Khách hàng
+            </th>
+            <th>
+               Form Thực Hiện
+            </th>
+            <th>
+                Ghi Chú
+            </th>
+            <th>
+                Người Yêu Cầu
+            </th>
+            <th>
+                Ngày Tạo
+            </th>
+            <th>
+                Ngày Hoàn Thành
+            </th>
+            <th>
+                Tên Code
+            </th>
+            <th>
+                Tên Kỹ Thuật
+            </th>
+            <th>
+               Tên Khách Hàng
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Items) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ma)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TrangThai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodeMa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KyThuatMa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KhachHangMa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormThucHien)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GhiChu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NguoiYeuCau)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayTao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NgayHoanThanh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenTrienKhai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenKhachHang)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
