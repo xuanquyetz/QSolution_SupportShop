@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SupportWeb.Application.Catalog.RequestKH;
+using SupportWeb.Data.Enums;
 using SupportWeb.ViewModels.Catalog.RequestKH;
 
 namespace SupportWeb.BackendApi.Controllers
@@ -32,6 +33,12 @@ namespace SupportWeb.BackendApi.Controllers
             var requestkh = await _publicRequestKHService.GetAllByRequestKH(request);
             return Ok(requestkh);
         }
+        [HttpGet("manager-paging")]
+        public async Task<IActionResult> GetAllPaging([FromQuery] GetManageRequestKHPagingRequest request)
+        {
+            var requestkh = await _manageRequestKHService.GetAllPaging(request);
+            return Ok(requestkh);
+        }
         [HttpGet("{Ma}")]
         public async Task<IActionResult> GetByMa(Guid Ma)
         {
@@ -40,6 +47,24 @@ namespace SupportWeb.BackendApi.Controllers
                 return BadRequest("Khong tim thay Request KH");
             return Ok(requestkh);
         }
+        [HttpGet("KH/{MaKH}/{trangThai}")]
+        public async Task<IActionResult> GetByMaKHAndTrangThai(Guid MaKH, TrangThai trangThai)
+        {
+            var requestkh = await _publicRequestKHService.GetByKHAndTrangThai(MaKH, trangThai);
+            if (requestkh == null)
+                return BadRequest("Khong tim thay Request KH");
+            return Ok(requestkh);
+        }
+        [HttpGet("KH/{MaKH}")]
+        public async Task<IActionResult> GetByMaKH(Guid MaKH)
+        {
+            var requestkh = await _publicRequestKHService.GetByKH(MaKH);
+            if (requestkh == null)
+                return BadRequest("Khong tim thay Request KH");
+            return Ok(requestkh);
+        }
+
+
         //[HttpGet("public")]
         //public async Task<IActionResult> GetByMa_Public(GetPublicRequestKHPagingRequest request)
         //{
@@ -51,6 +76,10 @@ namespace SupportWeb.BackendApi.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromForm] RequestKHCreateRequest request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var ketquaMa = await _manageRequestKHService.Create(request);
             if (ketquaMa == null)
                 return BadRequest();
@@ -60,6 +89,10 @@ namespace SupportWeb.BackendApi.Controllers
         [HttpPut]
         public async Task<IActionResult> Update([FromForm] RequestKHUpdateRequest request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
             var affectedResult = await _manageRequestKHService.Update(request);
             if (affectedResult == 0)
                 return BadRequest();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using SupportWeb.Data.Enums;
 using SupportWeb.ViewModels.Catalog.RequestKH;
 using SupportWeb.ViewModels.Catalog.RequestKHImage;
 using SupportWeb.ViewModels.Common;
@@ -21,5 +22,6 @@ namespace SupportWeb.Application.Catalog.RequestKH
         Task<List<RequestKHImageViewModel>> GetListImage(string MaRequetKH);
         Task<List<RequestKHImageViewModel>> GetImageByMa(string MaImage);
         Task<RequestKHViewModel> GetByMa(Guid Ma);
+        Task<RequestKHViewModel> GetByTrangThaiAndKH(Guid MaKH );
     }
 }

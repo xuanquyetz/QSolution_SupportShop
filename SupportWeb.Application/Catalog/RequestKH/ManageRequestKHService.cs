@@ -16,6 +16,7 @@ using SupportWeb.ViewModels.Common;
 using SupportWeb.ViewModels.Catalog.RequestKHImage;
 using System.Net.Http.Headers;
 using SupportWeb.Application.Common;
+using SupportWeb.Data.Enums;
 
 namespace SupportWeb.Application.Catalog.RequestKH
 {
@@ -140,9 +141,32 @@ namespace SupportWeb.Application.Catalog.RequestKH
             return pagedResult;
         }
 
-        public async Task<RequestKHViewModel> GetByMa(Guid Ma2)
+        public async Task<RequestKHViewModel> GetByMa(Guid Ma)
         {
-            var requestkh = await _context.RequestKHs.FindAsync(Ma2);
+            var requestkh = await _context.RequestKHs.FindAsync(Ma);
+            var reqestKHViewModel = new RequestKHViewModel()
+            {
+                Ma = requestkh.Ma,
+                Ten = requestkh.Ten,
+                Stt = requestkh.Stt,
+                TrangThai = requestkh.TrangThai,
+                CodeMa = requestkh.CodeMa,
+                KyThuatMa = requestkh.KyThuatMa,
+                KhachHangMa = requestkh.KhachHangMa,
+                FormThucHien = requestkh.FormThucHien,
+                GhiChu = requestkh.GhiChu,
+                NguoiYeuCau = requestkh.NguoiYeuCau
+
+            };
+            return reqestKHViewModel;
+
+        }
+
+        public async Task<RequestKHViewModel> GetByTrangThaiAndKH(Guid MaKH)
+        {
+            // var requestkh = await _context.RequestKHs.FindAsync(MaKH,trangThai);
+            var requestkh = await _context.RequestKHs.FirstOrDefaultAsync(q=>q.KhachHangMa==MaKH);
+           // var khachhang = await _context.KhachHangs.FirstOrDefaultAsync(q => q.Ma == MaKH);
             var reqestKHViewModel = new RequestKHViewModel()
             {
                 Ma = requestkh.Ma,
@@ -158,7 +182,6 @@ namespace SupportWeb.Application.Catalog.RequestKH
 
             };
             return reqestKHViewModel;
-
         }
 
         public Task<List<RequestKHImageViewModel>> GetImageByMa(string MaImage)
