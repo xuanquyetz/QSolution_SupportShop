@@ -18,7 +18,7 @@ namespace SupportShop.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public IActionResult Homepage()
         {
             return View();
         }

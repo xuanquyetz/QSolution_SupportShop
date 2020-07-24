@@ -82,7 +82,7 @@ namespace SupportShop
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=RequestKH}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Homepage}/{id?}");
             });
         }
     }
