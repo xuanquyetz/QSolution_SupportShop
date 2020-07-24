@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Http;
 using Newtonsoft.Json;
 using SupportWeb.ViewModels.Catalog.RequestKH;
@@ -34,6 +35,16 @@ namespace SupportShop.Services
             var body = await response.Content.ReadAsStringAsync();
             var requestKH = JsonConvert.DeserializeObject<PageResult<RequestKHViewModel>>(body);
             return requestKH;
+        }
+        [HttpGet(Name = "GetRanking")]
+        public async Task<IActionResult> GetAPINgoai()
+        {
+            var cl = new HttpClient();
+            var result = cl.GetAsync("http://115.79.29.62:6000/api/Common/get-all-cities").Result;
+            var body = await result.Content.ReadAsStringAsync();
+            var iii = JsonConvert.DeserializeObject<IActionResult>(body);
+
+            return iii;
         }
     }
 }

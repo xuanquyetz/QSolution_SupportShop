@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,10 @@ namespace SupportShop.Controllers
             _configuration = configuration;
         }
         public async Task <IActionResult> Index( string keyword, int pageIndex=1, int pageSize=10)
-        {
+        { 
+            var cl = new HttpClient();
+            var result = cl.GetAsync("http://115.79.29.62:6000/api/Common/get-all-cities").Result;
+
             var sesstion = HttpContext.Session.GetString("token");
             var request = new GetManageRequestKHPagingRequest()
             {
@@ -31,6 +35,11 @@ namespace SupportShop.Controllers
             };
             var data =  await _requestKHApiClient.GetManageRequestKHPaging(request);
             return View(data);
+        }
+        public async Task<IActionResult> Index2()
+        {
+            
+            return null;
         }
     }
 }
