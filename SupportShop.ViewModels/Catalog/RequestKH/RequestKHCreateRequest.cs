@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using SupportWeb.Data.Entities;
 using SupportWeb.Data.Enums;
 using System;
 using System.Collections.Generic;
@@ -13,8 +14,11 @@ namespace SupportWeb.ViewModels.Catalog.RequestKH
         public string Ten { set; get; }
         public TrangThai TrangThai { set; get; }
         public Guid CodeMa { set; get; }
+        public string TenCode { get; set; }
         public Guid KyThuatMa { set; get; }
+        public string TenKyThuat { set; get; }
         public Guid KhachHangMa { set; get; }
+        public string TenKhachHang { get; set; }
         public string FormThucHien { set; get; }
         public string GhiChu { set; get; }
         public string NguoiYeuCau { set; get; }

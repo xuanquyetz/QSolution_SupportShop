@@ -10,10 +10,11 @@ namespace SupportWeb.Application.Catalog.NhanSu
 {
     public interface IManageNhanSuService
     {
-        Task<int> Create(NhanSuCreateRequest request);
+        Task<Guid> Create(NhanSuCreateRequest request);
         Task<int> Update(NhanSuUpdateRequest request);
-        Task<int> Delete(string Ma);
+        Task<int> Delete(Guid Ma);
         Task<List<NhanSuViewModel>> GetAll();
         Task<PageResult<NhanSuViewModel>> GetAllPaging(GetNhanSuPagingRequest request);
+        Task<NhanSuViewModel> GetByMa(Guid Ma);
     }
 }

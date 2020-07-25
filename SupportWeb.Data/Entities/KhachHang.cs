@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SupportWeb.Data.Entities
 {
-  public  class KhachHang
+  public class KhachHang
     {
         public Guid Ma { set; get; }
         public string Ten { set; get; }

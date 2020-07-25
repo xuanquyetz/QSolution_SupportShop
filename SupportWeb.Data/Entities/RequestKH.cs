@@ -22,5 +22,6 @@ namespace SupportWeb.Data.Entities
         public KhachHang KhachHang { set; get; }
         public NhanSu NhanSu { set; get; }
         public List<RequestKHImage> RequestKHImage { set; get; }
+       
     }
 }

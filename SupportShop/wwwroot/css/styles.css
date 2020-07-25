@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 /*!
 * Start Bootstrap - SB Admin v6.0.1 (https://startbootstrap.com/templates/sb-admin)
 * Copyright 2013-2020 Start Bootstrap
@@ -10,6 +10,9 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+#modal_requestKH{
+    width: 800px;
+}
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -1679,22 +1682,24 @@ pre code {
   }
 }
 .table {
-  width: 100%;
-  margin-bottom: 1rem;
-  color: #212529;
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #2999e2;
+    background-color:#fff;
 }
-.table th,
-.table td {
-  padding: 0.75rem;
-  vertical-align: top;
-  border-top: 1px solid #dee2e6;
-}
-.table thead th {
-  vertical-align: bottom;
-  border-bottom: 2px solid #dee2e6;
-}
+    .table th,
+    .table td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #2999e2;
+    }
+    .table thead th {
+        vertical-align: bottom;
+        border-top: 2px solid #2999e2;
+       /* background-color:rgba(247, 189, 69, 0.76)*/
+    }
 .table tbody + tbody {
-  border-top: 2px solid #dee2e6;
+  border-top: 2px solid #e9ecef;
 }
 
 .table-sm th,
@@ -1739,7 +1744,8 @@ pre code {
 .table-primary td,
 .table-primary thead th,
 .table-primary tbody + tbody {
-  border-color: #7abaff;
+/* border-color: #7abaff;*/
+border-color:aqua;
 }
 
 .table-hover .table-primary:hover {

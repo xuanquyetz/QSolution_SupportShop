@@ -8,6 +8,7 @@ namespace SupportWeb.ViewModels.Catalog.NhanSu
 {
    public class GetNhanSuPagingRequest:PagingRequestBase
     {
-        public string Keyword { get; set; }
+        public string Ma { set; get; }
+        public string Keyword { set; get; }
     }
 }

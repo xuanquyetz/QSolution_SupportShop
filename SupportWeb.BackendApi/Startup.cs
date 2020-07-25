@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using SupportWeb.Application.Catalog.KhachHang;
+using SupportWeb.Application.Catalog.NhanSu;
 using SupportWeb.Application.Catalog.RequestKH;
 using SupportWeb.Application.Common;
 using SupportWeb.Data.EF;
@@ -33,6 +35,8 @@ namespace SupportWeb.BackendApi
         options.UseSqlServer(Configuration.GetConnectionString(SystemConstants.MainConnectionString)));
             services.AddTransient<IPublicRequestKHService, PublicRequestKHService>();
             services.AddTransient<IManageRequestKHService, ManageRequestKHService>();
+            services.AddTransient<IManageNhanSuService, ManageNhanSuService>();
+            services.AddTransient<IManageKhachHangService, ManageKhachHangService>();
             services.AddTransient<IStorageService, FileStorageService>();
             services.AddControllersWithViews();
             services.AddSwaggerGen(q =>

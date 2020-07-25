@@ -17,6 +17,7 @@ using SupportWeb.ViewModels.Catalog.RequestKHImage;
 using System.Net.Http.Headers;
 using SupportWeb.Application.Common;
 using SupportWeb.Data.Enums;
+using System.Collections.Immutable;
 
 namespace SupportWeb.Application.Catalog.RequestKH
 {
@@ -33,7 +34,7 @@ namespace SupportWeb.Application.Catalog.RequestKH
         {
             throw new NotImplementedException();
         }
-
+        
         public async Task<Guid> Create(RequestKHCreateRequest request)
         {
             var requestKH = new Data.Entities.RequestKH()
@@ -48,7 +49,7 @@ namespace SupportWeb.Application.Catalog.RequestKH
                 GhiChu=request.GhiChu,
                 NguoiYeuCau=request.NguoiYeuCau,
                 NgayTao=DateTime.Now,
-                NgayHoanThanh=request.NgayHoanThanh
+                NgayHoanThanh=request.NgayHoanThanh,
             };
             //Save Image
             if (request.HinhNho != null)

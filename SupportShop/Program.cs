@@ -20,7 +20,7 @@ namespace SupportShop
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<SupportShop.Startup>();
                 });
     }
 }
