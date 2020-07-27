@@ -17,7 +17,8 @@ namespace SupportShop.Controllers
         {
             _logger = logger;
         }
-
+        [Route("")]
+        [Route("Home")]
         public IActionResult Homepage()
         {
             return View();

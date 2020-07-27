@@ -20,6 +20,8 @@ namespace SupportShop.Controllers
             _requestKHApiClient = requestKHApiClient;
             _configuration = configuration;
         }
+
+        [Route("yeu-cau-khach-hang")]
         public async Task <IActionResult> Index( string keyword, int pageIndex=1, int pageSize=10)
         { 
             var cl = new HttpClient();
