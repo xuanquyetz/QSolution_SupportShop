@@ -1,13 +1,16 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SupportShop.Services;
 
 namespace SupportShop
 {
@@ -25,10 +28,34 @@ namespace SupportShop
         {
             services.AddHttpClient();
 
-            services.AddControllersWithViews();
-            services.AddSession(options => {
-                options.IdleTimeout = TimeSpan.FromMinutes(30);//You can set Time   
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Login/Index";
+                    options.AccessDeniedPath = "/User/Forbidden/";
+                });
+
+            //services.AddControllersWithViews()
+            //        .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<RequestKHApiClient>());
+
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30);
             });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddTransient<IRequestKHApiClient, RequestKHApiClient>();
+           
+
+            IMvcBuilder builder = services.AddRazorPages();
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+#if DEBUG
+            if (environment == Environments.Development)
+            {
+              // builder.AddRazorPagesOptions();
+            }
+#endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,7 +73,7 @@ namespace SupportShop
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -55,7 +82,7 @@ namespace SupportShop
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Homepage}/{id?}");
             });
         }
     }

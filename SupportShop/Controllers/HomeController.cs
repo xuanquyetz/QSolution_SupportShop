@@ -17,11 +17,13 @@ namespace SupportShop.Controllers
         {
             _logger = logger;
         }
-
-        public IActionResult Index()
+        [Route("")]
+        [Route("Home")]
+        public IActionResult Homepage()
         {
             return View();
         }
+
 
         public IActionResult Privacy()
         {

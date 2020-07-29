@@ -8,10 +8,12 @@
     <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
+    <PackageReference Include="RestSharp" Version="106.11.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\SupportShop.ViewModels\SupportWeb.ViewModels.csproj" />
+    <ProjectReference Include="..\SupportWeb.BackendApi\SupportWeb.BackendApi.csproj" />
   </ItemGroup>
 
 </Project>

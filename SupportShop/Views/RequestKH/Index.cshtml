@@ -6,116 +6,135 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<section class="content">
+    <header class="content__title">
+        <h1>DATA TABLES</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                STT
-            </th>
-            <th>
-               Mã
-            </th>
-            <th>
-               Tên Request
-            </th>
-            <th>
-                Trạng Thái
-            </th>
-            <th>
-                IdCode
-            </th>
-            <th>
-               Id Kỹ Thuật
-            </th>
-            <th>
-               Id Khách hàng
-            </th>
-            <th>
-               Form Thực Hiện
-            </th>
-            <th>
-                Ghi Chú
-            </th>
-            <th>
-                Người Yêu Cầu
-            </th>
-            <th>
-                Ngày Tạo
-            </th>
-            <th>
-                Ngày Hoàn Thành
-            </th>
-            <th>
-                Tên Code
-            </th>
-            <th>
-                Tên Kỹ Thuật
-            </th>
-            <th>
-               Tên Khách Hàng
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Items) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ma)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ten)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TrangThai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CodeMa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KyThuatMa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.KhachHangMa)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FormThucHien)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GhiChu)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NguoiYeuCau)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayTao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NgayHoanThanh)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenTrienKhai)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TenKhachHang)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-        </tr>
+        <div class="actions">
+            <a href="#" class="actions__item zmdi zmdi-trending-up"></a>
+            <a href="#" class="actions__item zmdi zmdi-check-all"></a>
+
+            <div class="dropdown actions__item">
+                <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a href="#" class="dropdown-item">Refresh</a>
+                    <a href="#" class="dropdown-item">Manage Widgets</a>
+                    <a href="#" class="dropdown-item">Settings</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Basic example</h4>
+            <h6 class="card-subtitle">DataTables is a plug-in for the jQuery Javascript library. It is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table.</h6>
+
+            <div class="table-responsive">
+                <table id="data-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                STT
+                            </th>
+                            <th>
+                                Tên Request
+                            </th>
+                            <th>
+                                Trạng Thái
+                            </th>
+                            <th>
+                                Form Thực Hiện
+                            </th>
+                            <th>
+                                Ghi Chú
+                            </th>
+                            <th>
+                                Người Yêu Cầu
+                            </th>
+                            <th>
+                                Ngày Tạo
+                            </th>
+                            <th>
+                                Ngày Hoàn Thành
+                            </th>
+                            <th>
+                                Tên Code
+                            </th>
+                            <th>
+                                Tên Kỹ Thuật
+                            </th>
+                            <th>
+                                Tên Khách Hàng
+                            </th> 
+                            <!-- <th>Option</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Stt)
+                                </td>
+                                @*<td>
+                                        @Html.DisplayFor(modelItem => item.Ma)
+                                    </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Ten)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TrangThai)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FormThucHien)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.GhiChu)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NguoiYeuCau)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayTao)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NgayHoanThanh)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenCode)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenTrienKhai)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.TenKhachHang)
+                                </td> 
+
+                                <!--  <td>
+                                       <button onclick="alert('Đang phát triển')" type="button" class="btn btn-info">Xem</button>
+                                     <button onclick="alert('Đang phát triển')" type="button" class="btn btn-primary">Sửa</button>
+                                     <button onclick="alert('Đang phát triển')" type="button" class="btn btn-danger">Xóa</button>
+                                 </td> -->
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+     
+</section>
+
+ 
+@section Scripts {
+    <script src="~/vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/vendors/bower_components/jszip/dist/jszip.min.js"></script>
+    <script src="~/vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
 }
-    </tbody>
-</table>
+
+
