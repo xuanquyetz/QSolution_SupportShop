@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Http;
 using Newtonsoft.Json;
+using SupportWeb.Application.Catalog.RequestKH;
 using SupportWeb.ViewModels.Catalog.RequestKH;
 using SupportWeb.ViewModels.Common;
 using System;
@@ -45,6 +46,37 @@ namespace SupportShop.Services
             var iii = JsonConvert.DeserializeObject<IActionResult>(body);
 
             return iii;
+        }
+
+        public async Task<ApiResult<bool>> CreateRequestKH(RequestKHCreateRequest request)
+        {
+            var client = _httpClientFactory.CreateClient();
+            client.BaseAddress = new Uri(_configuratiton["KetNoiDiaChi"]);
+
+            var json = JsonConvert.SerializeObject(request);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var response = await client.PostAsync($"/api/RequestKH", httpContent);
+            var result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+                return JsonConvert.DeserializeObject<ApiSuccessResult<bool>>(result);
+
+            return JsonConvert.DeserializeObject<ApiErrorResult<bool>>(result);
+        }
+
+        public Task<ApiResult<bool>> UpdateRequestKH(Guid Ma, RequestKHUpdateRequest request)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ApiResult<RequestKHViewModel>> GetByMa(Guid Ma)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<ApiResult<bool>> Delete(Guid Ma)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -41,5 +41,27 @@ namespace SupportShop.Controllers
             
             return null;
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(RequestKHCreateRequest request)
+        {
+            if (!ModelState.IsValid)
+                return View();
+
+            var result = await _requestKHApiClient.CreateRequestKH(request);
+            if (result.IsSuccessed)
+            {
+                TempData["result"] = "Thêm thành công";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", result.Message);
+            return View(request);
+        }
     }
 }
