@@ -47,9 +47,9 @@ namespace SupportWeb.Application.Catalog.KhachHang
             return await _context.SaveChangesAsync();
         }
 
-        public Task<List<KhachHangViewModel>> GetAll()
+        public async Task<List<KhachHangViewModel>> GetAll()
         {
-            throw new NotImplementedException();
+            return null;
         }
 
         public async Task<PageResult<KhachHangViewModel>> GetAllPaging(GetKhachHangPagingRequest request)
